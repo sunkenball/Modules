@@ -15,7 +15,9 @@ function Promise:andThen(func: func): table | string
     task.spawn(function()
         local Success, Output    = pcall(func)
         if not Success then
-            Promise:catch(warn, Output)
+            task.spawn(function()
+                Promise:catch(warn, Output)
+            end)
             return Promise, Output
         else
             return Promise
