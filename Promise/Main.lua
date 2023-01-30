@@ -12,19 +12,15 @@ end
 function Promise:andThen(func: func): table | string
     local Success, Output    = pcall(func)
     if not Success then
+        Promise:catch(warn, Output)
         return Promise, Output
     else
         return Promise
     end
 end
 
-function Promise:catch(func, output): table
-    local Success, Output    = pcall(func)
-    if not Success then
-        return Promise, Output
-    else
-        return Promise
-    end
+function Promise:catch(func): table
+    return Promise
 end
 
 function Promise.all(functions: table): boolean
