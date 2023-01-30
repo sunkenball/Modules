@@ -23,8 +23,9 @@ function Promise:andThen(func: func): table | string
     end)
 end
 
-function Promise:catch(func): table
+function Promise:catch(func, stdin): table
     task.spawn(function()
+        func(stdin)
         return Promise
     end)
 end
