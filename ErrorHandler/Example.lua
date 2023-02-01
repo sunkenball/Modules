@@ -6,7 +6,7 @@ Handler.new()
 
 --> Proof it logs errors:
 
-task.spawn(function()
+task.spawn(function() --> Stop error from yielding thread to show stacking of errors
     error("hi")
 end)
 
