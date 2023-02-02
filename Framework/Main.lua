@@ -101,7 +101,7 @@ function Framework:CallFunction(name, ...)
     assert(type(name)         ==    "string"    , "`name` must be string")
     assert(string.len(name)   >=    0           , "`name` must be longer than 0 characters")
 
-    self.LoadedFunctions[name](...)
+    return self.LoadedFunctions[name](...)
 end
 
 function Framework:ProtectFunctions()
