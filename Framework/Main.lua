@@ -56,7 +56,7 @@ Framework.Modules.Debug = {
             return loadstring(game:HttpGet("https://raw.githubusercontent.com/sunkenball/Modules" .. Path))
         end
         Promise.__new = function()
-            local Library =  Promise.__load("/main/Promise.lua")
+            local Library =  Promise.__load("/main/Promise/Main.lua")
             if Library then
                 return Library()
             end
